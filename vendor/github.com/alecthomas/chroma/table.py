@@ -15,9 +15,7 @@ table = defaultdict(list)
 for line in lines:
     table[line[0].upper()].append(line)
 
-rows = []
-for key, value in table.items():
-    rows.append("{} | {}".format(key, ", ".join(value)))
+rows = [f'{key} | {", ".join(value)}' for key, value in table.items()]
 tbody = "\n".join(rows)
 
 with open(README_FILE, "r") as f:
